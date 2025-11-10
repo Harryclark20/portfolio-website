@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Expertise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FF9900, #232F3E);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-right: 15px;
+            color: white;
+        }
+
+        .service-title {
+            font-size: 1.5em;
+            color: #232F3E;
+        }
+
+        .service-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .use-cases {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #FF9900;
+        }
+
+        .use-cases h4 {
+            color: #232F3E;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .use-cases ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .use-cases li {
+            padding: 5px 0;
+            color: #666;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .use-cases li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #FF9900;
+            font-weight: bold;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: white;
+            color: #232F3E;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            margin: 20px auto;
+            display: block;
+            width: fit-content;
+        }
+
+        .back-button:hover {
+            background: #FF9900;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>☁️ AWS Cloud Expertise</h1>
+            <p class="subtitle">Comprehensive experience with Amazon Web Services infrastructure and solutions</p>
+        </header>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🖥️</div>
+                    <h3 class="service-title">EC2</h3>
+                </div>
+                <p class="service-description">
+                    Elastic Compute Cloud - Scalable virtual servers in the cloud. Expertise in instance configuration, 
+                    auto-scaling groups, load balancing, and high-availability architectures.
+                </p>
+                <div class="use-cases">
+                    <h4>Key Applications</h4>
+                    <ul>
+                        <li>Web application hosting</li>
+                        <li>Microservices deployment</li>
+                        <li>Development environments</li>
+                        <li>Auto-scaling architectures</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📦</div>
+                    <h3 class="service-title">S3</h3>
+                </div>
+                <p class="service-description">
+                    Simple Storage Service - Object storage with industry-leading scalability. Proficient in bucket policies, 
+                    lifecycle management, versioning, and cross-region replication.
+                </p>
+                <div class="use-cases">
+                    <h4>Key Applications</h4>
+                    <ul>
+                        <li>Static website hosting</li>
+                        <li>Backup and disaster recovery</li>
+                        <li>Data lake architecture</li>
+                        <li>Media file storage</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">⚡</div>
+                    <h3 class="service-title">CloudFront</h3>
+                </div>
+                <p class="service-description">
+                    Content Delivery Network - Global edge locations for low-latency content delivery. 
+                    Experience with distribution configuration, cache behaviors, and SSL/TLS certificates.
+                </p>
+                <div class="use-cases">
+                    <h4>Key Applications</h4>
+                    <ul>
+                        <li>Global content delivery</li>
+                        <li>Video streaming</li>
+                        <li>API acceleration</li>
+                        <li>DDoS protection</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">λ</div>
+                    <h3 class="service-title">Lambda</h3>
+                </div>
+                <p class="service-description">
+                    Serverless compute service - Run code without managing servers. Skilled in event-driven architectures, 
+                    function optimization, and integration with other AWS services.
+                </p>
+                <div class="use-cases">
+                    <h4>Key Applications</h4>
+                    <ul>
+                        <li>Event processing</li>
+                        <li>API backends</li>
+                        <li>Data transformation</li>
+                        <li>Scheduled tasks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🗄️</div>
+                    <h3 class="service-title">RDS</h3>
+                </div>
+                <p class="service-description">
+                    Relational Database Service - Managed database solutions for MySQL, PostgreSQL, and more. 
+                    Experience with multi-AZ deployments, read replicas, and automated backups.
+                </p>
+                <div class="use-cases">
+                    <h4>Key Applications</h4>
+                    <ul>
+                        <li>Production databases</li>
+                        <li>High-availability setups</li>
+                        <li>Database migration</li>
+                        <li>Performance optimization</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🌐</div>
+                    <h3 class="service-title">Route 53</h3>
+                </div>
+                <p class="service-description">
+                    DNS and Domain Registration - Highly available and scalable domain name system. 
+                    Proficient in routing policies, health checks, and DNS failover configurations.
+                </p>
+                <div class="use-cases">
+                    <h4>Key Applications</h4>
+                    <ul>
+                        <li>Domain management</li>
+                        <li>Traffic routing</li>
+                        <li>Health monitoring</li>
+                        <li>Hybrid cloud DNS</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🔐</div>
+                    <h3 class="service-title">IAM & Security</h3>
+                </div>
+                <p class="service-description">
+                    Identity and Access Management - Secure access control for AWS resources. 
+                    Expertise in policies, roles, least privilege access, and security best practices.
+                </p>
+                <div class="use-cases">
+                    <h4>Key Applications</h4>
+                    <ul>
+                        <li>User and role management</li>
+                        <li>Policy creation</li>
+                        <li>Security auditing</li>
+                        <li>Compliance enforcement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📊</div>
+                    <h3 class="service-title">CloudWatch</h3>
+                </div>
+                <p class="service-description">
+                    Monitoring and Observability - Comprehensive monitoring for AWS resources and applications. 
+                    Experience with metrics, logs, alarms, and custom dashboards.
+                </p>
+                <div class="use-cases">
+                    <h4>Key Applications</h4>
+                    <ul>
+                        <li>Performance monitoring</li>
+                        <li>Log aggregation</li>
+                        <li>Alert configuration</li>
+                        <li>Resource optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-button" onclick="history.back(); return false;">← Back to Portfolio</a>
+    </div>
+</body>
+</html>

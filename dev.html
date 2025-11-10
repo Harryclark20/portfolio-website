@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Revilo | Cloud Developer</title>
+    <style>
+        /* ensure pseudo-elements use border-box too and provide anchor offset for fixed header */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* offset anchor scrolling so fixed header doesn't cover targets */
+        html {
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #232F3E;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF9900;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FF9900;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
+            color: white;
+            padding: 150px 20px 100px;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #232F3E;
+        }
+
+        .btn-primary:hover {
+            background: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #232F3E;
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #232F3E;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            color: #232F3E;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-card p {
+            color: #666;
+        }
+
+        /* Projects Section */
+        #projects {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-image {
+            background: linear-gradient(135deg, #232F3E, #FF9900);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: #232F3E;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #232F3E;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 80px 20px;
+            background: #232F3E;
+            color: white;
+            text-align: center;
+        }
+
+        #contact .section-title {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Revilo</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Revilo</h1>
+            <p class="subtitle">Cloud Developer & AWS Enthusiast</p>
+            <p>Building scalable solutions and exploring the endless possibilities of cloud computing. Passionate about DevOps, automation, and creating seamless user experiences.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <a href="aws-cloud.html" class="skill-card">
+                    <div class="skill-icon">☁️</div>
+                    <h3>AWS Cloud</h3>
+                    <p>EC2, S3, CloudFront, Lambda, RDS, Route 53, and more</p>
+                </a>
+                <a href="web-development.html" class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>Web Development</h3>
+                    <p>HTML5, CSS3, JavaScript, React, responsive design</p>
+                </a>
+                <a href="devops.html" class="skill-card">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>DevOps</h3>
+                    <p>CI/CD, Docker, Git, Infrastructure as Code</p>
+                </a>
+                <a href="security.html" class="skill-card">
+                    <div class="skill-icon">🔒</div>
+                    <h3>Security</h3>
+                    <p>IAM, encryption, secure architecture design</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🚀</div>
+                    <div class="project-content">
+                        <h3>Static Website Hosting</h3>
+                        <p>Deployed a high-performance static website using AWS S3 and CloudFront with custom domain and SSL.</p>
+                        <div class="project-tags">
+                            <span class="tag">AWS S3</span>
+                            <span class="tag">CloudFront</span>
+                            <span class="tag">Route 53</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🔄</div>
+                    <div class="project-content">
+                        <h3>CI/CD Pipeline</h3>
+                        <p>Built automated deployment pipeline with GitHub Actions, Docker, and AWS ECS for seamless updates.</p>
+                        <div class="project-tags">
+                            <span class="tag">GitHub Actions</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">AWS ECS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">💾</div>
+                    <div class="project-content">
+                        <h3>Serverless API</h3>
+                        <p>Created a scalable REST API using AWS Lambda, API Gateway, and DynamoDB with auto-scaling capabilities.</p>
+                        <div class="project-tags">
+                            <span class="tag">Lambda</span>
+                            <span class="tag">API Gateway</span>
+                            <span class="tag">DynamoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Interested in working together? Let's connect!</p>
+            <div class="cta-buttons">
+                <a href="mailto:oliverobiwulu158@gmail.com" class="btn btn-primary">Email Me</a>
+                <a href="https://linkedin.com" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
